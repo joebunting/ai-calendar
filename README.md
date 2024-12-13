@@ -1,8 +1,16 @@
-# Calendar to OpenAI Assistant Sync
+# Calendar AI Sync for Mac
 
-This system automatically syncs your calendar with an OpenAI Assistant, allowing you to query your calendar using natural language. It runs hourly and provides desktop notifications for updates.
+This system automatically syncs your calendar with an OpenAI Assistant, allowing you to query your calendar using natural language. It runs hourly and provides desktop notifications for updates. It currently only works for Mac.
 
 ## Installation
+
+0. Install Python (if not already installed):
+   - Download Python 3.13 or later from [python.org](https://www.python.org/downloads/macos/)
+   - During installation, make sure to check "Add Python to PATH"
+   - Verify installation by opening Terminal and running:
+     ```bash
+     python3 --version
+     ```
 
 1. Run the setup script to install dependencies and create initial configuration:
 ```bash
