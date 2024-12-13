@@ -9,30 +9,54 @@ This system automatically syncs your calendar with an OpenAI Assistant, allowing
 python3 setup.py
 ```
 
-2. Edit the `.env` file with your configuration (see .env.example for reference, and the Create OpenAI Assistant section below for instructions on creating the assistant):
+2. Get your credentials:
+
+   a. Get your Google Calendar URL:
+      - Open Google Calendar (https://calendar.google.com)
+      - In the left sidebar, click the 3 dots next to your calendar name
+      ![Google Calendar Settings](docs/images/Screenshot%202024-12-13%20at%2011.25.18%20AM.png)
+      - Select "Settings and sharing"
+      - Scroll down to "Secret address in iCal format"
+      ![Secret iCal URL](docs/images/Screenshot%202024-12-13%20at%2011.29.45%20AM.png)
+      - Copy the URL (it should look like: https://calendar.google.com/calendar/ical/your-email/private-key/basic.ics)
+
+   b. Get your OpenAI API key:
+      - Go to [OpenAI Platform](https://platform.openai.com/api-keys)
+      - Click "Create new secret key"
+      ![OpenAI API Key](docs/images/Screenshot%202024-12-13%20at%2011.30.52%20AM.png)
+      - Copy the key (starts with "sk-")
+
+   c. Create your OpenAI Assistant:
+      - Go to [OpenAI Platform](https://platform.openai.com/assistants)
+      - Click "Create Assistant"
+      ![OpenAI Assistant](docs/images/Screenshot%202024-12-13%20at%2011.33.12%20AM.png)
+      - Follow the "Create OpenAI Assistant" section below
+      - Copy the Assistant ID (starts with "asst_")
+
+3. Add these credentials to your `.env` file:
 ```env
-# API Keys and IDs
-OPENAI_API_KEY=your_api_key_here
-CALENDAR_URL=your_ical_url_here
-CALENDAR_ASSISTANT_ID=your_assistant_id_here
+# Add your credentials from step 2
+OPENAI_API_KEY=sk-your-api-key-here
+CALENDAR_URL=your-google-calendar-url-here
+CALENDAR_ASSISTANT_ID=asst-your-assistant-id-here
 
-# System Paths
-PYTHON_PATH=/path/to/your/python
-SCRIPT_DIR=/path/to/your/AI-Calendar
-LOG_DIR=${SCRIPT_DIR}/logs
-
-# User Configuration
-MAC_USER_ID=your_username
+# System paths are configured automatically - no need to edit
 ```
 
-3. Install the launch agent:
+4. Install and start the service:
 ```bash
 python3 install.py
 ```
 
-4. Verify the installation:
+The service will:
+- Run automatically every hour
+- Download your calendar events
+- Update your OpenAI Assistant
+- Show desktop notifications for updates
+
+You can check if it's working by viewing the logs:
 ```bash
-launchctl list | grep calendarupdate
+tail -f logs/calendar_service.log
 ```
 
 ## Managing the Service
@@ -49,13 +73,10 @@ python3 uninstall.py
 - `update_calendar_cron.py`: Orchestrates the updates and provides notifications
 - `com.user.calendarupdate.plist`: LaunchAgent for automatic startup and background running
 
-## Setup
+## Configure Your Assistant
 
-## Create the OpenAI Assistant
+Here are some suggestions to configure your assistant:
 
-1. Go to [OpenAI Platform](https://platform.openai.com/assistants)
-2. Click "Create Assistant"
-3. Configure the assistant:
    - Name: "Calendar Assistant"
    - Model: GPT-4o (recommended)
    - Instructions: 
@@ -97,11 +118,6 @@ python3 uninstall.py
      ```
    - Tools: Enable "File Search" (retrieval)
    - Save the Assistant ID for your `.env` file
-
-4. Copy the Assistant ID (found in the URL or settings) and add it to your `.env` file:
-```env
-CALENDAR_ASSISTANT_ID=asst_your_assistant_id_here
-```
 
 The system will automatically upload your calendar data to this assistant when it runs.
 
