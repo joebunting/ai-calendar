@@ -1,0 +1,11 @@
+# Sensitive files
+.env
+Calendars/*.json
+
+# Logs
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
