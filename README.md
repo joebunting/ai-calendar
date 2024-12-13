@@ -14,22 +14,22 @@ python3 setup.py
    a. Get your Google Calendar URL:
       - Open Google Calendar (https://calendar.google.com)
       - In the left sidebar, click the 3 dots next to your calendar name
-      ![Google Calendar Settings](docs/images/Screenshot%202024-12-13%20at%2011.25.18%20AM.png)
+      ![Google Calendar Settings](docs/images/google-calendar-settings.png)
       - Select "Settings and sharing"
       - Scroll down to "Secret address in iCal format"
-      ![Secret iCal URL](docs/images/Screenshot%202024-12-13%20at%2011.29.45%20AM.png)
+      ![Secret iCal URL](docs/images/google-calendar-ical.png)
       - Copy the URL (it should look like: https://calendar.google.com/calendar/ical/your-email/private-key/basic.ics)
 
    b. Get your OpenAI API key:
       - Go to [OpenAI Platform](https://platform.openai.com/api-keys)
       - Click "Create new secret key"
-      ![OpenAI API Key](docs/images/Screenshot%202024-12-13%20at%2011.30.52%20AM.png)
+      ![OpenAI API Key](docs/images/openai-api-key.png)
       - Copy the key (starts with "sk-")
 
    c. Create your OpenAI Assistant:
       - Go to [OpenAI Platform](https://platform.openai.com/assistants)
       - Click "Create Assistant"
-      ![OpenAI Assistant](docs/images/Screenshot%202024-12-13%20at%2011.33.12%20AM.png)
+      ![OpenAI Assistant](docs/images/openai-assistant.png)
       - Follow the "Create OpenAI Assistant" section below
       - Copy the Assistant ID (starts with "asst_")
 
