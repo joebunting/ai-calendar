@@ -180,6 +180,14 @@ If the service isn't running:
 - iCal-compatible calendar
 - macOS for notifications
 
+Python packages (installed automatically):
+- python-dotenv (environment variable management)
+- openai (OpenAI API client)
+- requests (HTTP client)
+- schedule (task scheduling)
+- icalendar (calendar parsing)
+- python-dateutil (date handling)
+
 
 
 ## Testing the Assistant

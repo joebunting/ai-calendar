@@ -5,8 +5,8 @@ import subprocess
 from pathlib import Path
 
 def check_python_version():
-    if sys.version_info < (3, 7):
-        print("Python 3.7 or higher is required")
+    if sys.version_info < (3, 13):
+        print("Python 3.13 or higher is required")
         sys.exit(1)
 
 def install_requirements():

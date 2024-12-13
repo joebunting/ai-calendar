@@ -1,0 +1,9 @@
+# Core dependencies
+python-dotenv  # For .env file handling
+openai         # For OpenAI API interactions
+requests       # For HTTP requests
+schedule       # For scheduling tasks
+
+# Calendar handling
+icalendar      # For parsing iCal format
+python-dateutil  # For date manipulation and RRULE handling 
